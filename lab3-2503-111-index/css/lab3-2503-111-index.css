@@ -1,0 +1,276 @@
+/* 全局样式：盒子模型初始化（满足实验2） */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 统一border-box盒子模型 */
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    background-color: #f5f5f5;
+    padding-top: 80px; /* 为固定头部留空间 */
+}
+
+/* 1. 头部区域：固定定位 + 浮动布局（满足实验2.1、3） */
+.header {
+    position: fixed; /* 固定定位（满足实验4） */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #2c3e50;
+    color: white;
+    z-index: 1000; /* 确保头部置顶 */
+    padding: 0 20px; /* 内边距（盒子模型） */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 阴影增强视觉 */
+    font-size: 16px; /* 修正原180px的错误，避免布局错乱 */
+}
+
+.logo {
+    float: left; /* 浮动布局 */
+    line-height: 80px; /* 垂直居中 */
+}
+
+.logo img {
+    height: 60px;
+    vertical-align: middle;
+    margin-right: 10px; /* 外边距（盒子模型） */
+}
+
+.nav {
+    float: right; /* 浮动布局 */
+    line-height: 80px;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav ul li {
+    float: left; /* 菜单项浮动排列 */
+    margin-left: 30px; /* 外边距（盒子模型） */
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer; /* pointer效果（满足实验5） */
+    padding: 5px 10px; /* 内边距（盒子模型） */
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.nav ul li a:hover {
+    background-color: #34495e; /* 悬停背景变化 */
+}
+
+/* 2. 主体内容区：浮动三栏布局（满足实验3） */
+.main {
+    width: 1200px;
+    margin: 20px auto; /* 外边距居中（盒子模型） */
+    overflow: hidden; /* 辅助清除浮动 */
+}
+
+/* 左侧栏：相对定位（满足实验4） */
+.left-sidebar {
+    float: left;
+    width: 20%;
+    background-color: white;
+    padding: 20px; /* 内边距（盒子模型） */
+    border: 1px solid #ddd; /* 边框（盒子模型） */
+    position: relative; /* 相对定位 */
+    margin-right: 2%; /* 外边距（盒子模型） */
+    border-radius: 4px; /* 优化视觉 */
+}
+
+.left-sidebar h3 {
+    margin-bottom: 15px; /* 外边距（盒子模型） */
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px; /* 内边距（盒子模型） */
+}
+
+.category-list {
+    list-style: none;
+}
+
+.category-list li {
+    margin-bottom: 10px; /* 外边距（盒子模型） */
+}
+
+.category-list li a {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer; /* pointer效果（满足实验5） */
+    padding: 5px; /* 内边距（盒子模型） */
+    display: block;
+    transition: color 0.3s;
+    border-radius: 3px;
+}
+
+.category-list li a:hover {
+    color: #3498db; /* 悬停文字变色 */
+    background-color: #f0f8ff;
+}
+
+/* 中间栏 */
+.center-content {
+    float: left;
+    width: 55%;
+    background-color: white;
+    padding: 20px; /* 内边距（盒子模型） */
+    border: 1px solid #ddd; /* 边框（盒子模型） */
+    border-radius: 4px; /* 优化视觉 */
+}
+
+.center-content h3 {
+    margin-bottom: 15px; /* 外边距（盒子模型） */
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px; /* 内边距（盒子模型） */
+}
+
+/* 图书展示：父相子绝 + 悬停显示隐藏（满足实验4、5） */
+.book-show {
+    margin-bottom: 30px; /* 外边距（盒子模型） */
+    overflow: hidden; /* 清除子元素浮动 */
+}
+
+.book-item {
+    display: inline-block;
+    width: 30%;
+    margin-right: 3%; /* 外边距（盒子模型） */
+    text-align: center;
+    border: 1px solid #eee; /* 边框（盒子模型） */
+    padding: 10px; /* 内边距（盒子模型） */
+    cursor: pointer; /* pointer效果（满足实验5） */
+    position: relative; /* 父元素相对定位 */
+    border-radius: 4px;
+    margin-bottom: 15px; /* 补充垂直外边距 */
+}
+
+.book-item img {
+    width: 100%;
+    height: 150px; /* 优化图片高度，适配布局 */
+    object-fit: cover;
+    margin-bottom: 10px; /* 外边距（盒子模型） */
+    border-radius: 2px;
+}
+
+/* 父相子绝：悬停显示的信息（绝对定位，满足实验4） */
+.child-absolute {
+    position: absolute; /* 子元素绝对定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    display: none; /* 默认隐藏（满足实验5） */
+    padding-top: 50px; /* 内边距（盒子模型） */
+    border-radius: 4px;
+}
+
+.child-absolute p {
+    margin-bottom: 10px; /* 外边距（盒子模型） */
+}
+
+.child-absolute button {
+    padding: 8px 20px; /* 内边距（盒子模型） */
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer; /* pointer效果（满足实验5） */
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.child-absolute button:hover {
+    background-color: #c0392b; /* 按钮悬停效果 */
+}
+
+/* 鼠标悬停显示隐藏内容（满足实验5） */
+.book-item.parent-relative:hover .child-absolute {
+    display: block;
+}
+
+/* 热门推荐：浮动排列（满足实验3） */
+.hot-recommend {
+    margin-bottom: 30px; /* 外边距（盒子模型） */
+    overflow: hidden; /* 清除浮动 */
+}
+
+.hot-item {
+    float: left; /* 浮动排列 */
+    width: 22%;
+    margin-right: 3%; /* 外边距（盒子模型） */
+    background-color: #f8f9fa;
+    padding: 15px; /* 内边距（盒子模型） */
+    text-align: center;
+    border: 1px solid #eee; /* 边框（盒子模型） */
+    cursor: pointer; /* pointer效果（满足实验5） */
+    transition: transform 0.3s;
+    border-radius: 4px;
+}
+
+.hot-item:hover {
+    transform: scale(1.05); /* 悬停缩放效果 */
+}
+
+/* 新书上市：Table布局 */
+.new-books table {
+    width: 100%;
+    border-collapse: collapse; /* 合并边框 */
+    margin-top: 10px; /* 外边距（盒子模型） */
+}
+
+.new-books th, .new-books td {
+    border: 1px solid #ddd; /* 边框（盒子模型） */
+    padding: 12px; /* 内边距（盒子模型） */
+    text-align: left;
+}
+
+.new-books th {
+    background-color: #3498db;
+    color: white;
+}
+
+.new-books tr:nth-child(even) {
+    background-color: #f8f9fa; /* 隔行变色 */
+}
+
+.new-books tr:hover {
+    background-color: #e8f4fd; /* 行悬停效果 */
+}
+
+/* 右侧栏：固定定位（满足实验4） */
+.right-sidebar {
+    position: fixed; /* 固定定位 */
+    right: 20px;
+    top: 100px;
+    width: 200px;
+    background-color: #fff3cd;
+    padding: 20px; /* 内边距（盒子模型） */
+    border: 1px solid #ffeeba; /* 边框（盒子模型） */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.right-sidebar h3 {
+    margin-bottom: 15px; /* 外边距（盒子模型） */
+    color: #856404;
+    border-bottom: 2px solid #ffc107;
+    padding-bottom: 10px; /* 内边距（盒子模型） */
+}
+
+.ad p {
+    margin-bottom: 10px; /* 外边距（盒子模型） */
+    color: #856404;
+    line-height: 1.6;
+}
+
+/* 清除浮动工具类 */
+.clearfix {
+    clear: both;
+}
