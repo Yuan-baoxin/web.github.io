@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书商城 - 登录注册</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/lab4-2503-111-index.css">
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="logo">
+            <img src="image\logo.jpg" alt="网站Logo">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">图书分类</a></li>
+                <li><a href="#">新书上市</a></li>
+                <li><a href="#">热门推荐</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#"><i class="fas fa-search" id="searchIcon"></i> 搜索</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart" id="cartIcon"></i> 购物车</a></li>
+                <li><button class="login-btn" id="showLoginBtn">登录/注册</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 登录/注册弹窗 -->
+    <div class="login-modal-wrap" id="loginModalWrap">
+        <div class="login-modal">
+            <span class="close-modal" id="closeModalBtn">&times;</span>
+            <div class="modal-tabs">
+                <div class="modal-tab active" data-panel="loginPanel">登录</div>
+                <div class="modal-tab" data-panel="registerPanel">注册</div>
+            </div>
+            <div class="form-panel active" id="loginPanel">
+                <div class="form-group">
+                    <label for="loginUsername">用户名</label>
+                    <input type="text" id="loginUsername" placeholder="请输入用户名">
+                    <div class="tip-text" id="loginUserTip">用户名不能为空</div>
+                </div>
+                <div class="form-group">
+                    <label for="loginPwd">密码</label>
+                    <input type="password" id="loginPwd" placeholder="请输入密码">
+                    <div class="tip-text" id="loginPwdTip">密码不能为空</div>
+                </div>
+                <div class="tip-text" id="loginErrorTip">用户名或密码错误</div>
+                <button class="submit-btn" id="loginSubmitBtn">登录</button>
+            </div>
+            <div class="form-panel" id="registerPanel">
+                <div class="form-group">
+                    <label for="regUsername">用户名</label>
+                    <input type="text" id="regUsername" placeholder="请设置用户名">
+                    <div class="tip-text" id="regUserTip">用户名不能为空</div>
+                </div>
+                <div class="form-group">
+                    <label for="regPwd">密码</label>
+                    <input type="password" id="regPwd" placeholder="请设置密码（不少于6位）">
+                    <div class="tip-text" id="regPwdTip">密码长度不能少于6位</div>
+                </div>
+                <div class="form-group">
+                    <label for="regPwdConfirm">确认密码</label>
+                    <input type="password" id="regPwdConfirm" placeholder="请再次输入密码">
+                    <div class="tip-text" id="regPwdConfirmTip">两次密码不一致</div>
+                </div>
+                <div class="tip-text" id="regExistTip">该用户名已存在</div>
+                <button class="submit-btn" id="regSubmitBtn">注册</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main">
+        <aside class="left-sidebar">
+            <h3>图书分类</h3>
+            <ul class="category-list">
+                <li><a href="#">文学小说</a></li>
+                <li><a href="#">科技编程</a></li>
+                <li><a href="#">历史人文</a></li>
+                <li><a href="#">经济管理</a></li>
+                <li><a href="#">艺术设计</a></li>
+            </ul>
+        </aside>
+
+        <section class="center-content">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item"><img src="image/红楼梦.jpg" alt="轮播图1"></div>
+                    <div class="carousel-item"><img src="image/活着.jpg" alt="轮播图2"></div>
+                    <div class="carousel-item"><img src="image/三体.jpg" alt="轮播图3"></div>
+                </div>
+            </div>
+
+            <div class="book-show">
+                <h3>精选图书</h3>
+                <div class="book-item">
+                    <img src="image/computer.jpg" alt="图书1">
+                    <p>深入理解计算机系统</p>
+                    <div class="hover-info">
+                        <p>售价：¥99.00</p>
+                        <p>作者：Bryant</p>
+                        <button>立即购买</button>
+                    </div>
+                </div>
+                <div class="book-item">
+                    <img src="image/javascript.jpg" alt="图书2">
+                    <p>JavaScript高级程序设计</p>
+                    <div class="hover-info">
+                        <p>售价：¥89.00</p>
+                        <p>作者：Nicholas C. Zakas</p>
+                        <button>立即购买</button>
+                    </div>
+                </div>
+                <div class="book-item">
+                    <img src="image/python.jpg" alt="图书3">
+                    <p>Python编程从入门到实践</p>
+                    <div class="hover-info">
+                        <p>售价：¥79.00</p>
+                        <p>作者：Eric Matthes</p>
+                        <button>立即购买</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hot-recommend">
+                <h3>热门推荐</h3>
+                <div class="hot-item">🔥 三体全集</div>
+                <div class="hot-item">🔥 活着</div>
+                <div class="hot-item">🔥 围城</div>
+                <div class="hot-item">🔥 红楼梦</div>
+            </div>
+
+            <div class="new-books">
+                <h3>新书上市</h3>
+                <table>
+                    <tr><th>书名</th><th>作者</th><th>价格</th></tr>
+                    <tr><td>AI时代的编程思维</td><td>张三</td><td>¥59.00</td></tr>
+                    <tr><td>Web前端开发实战</td><td>李四</td><td>¥49.00</td></tr>
+                    <tr><td>大数据分析入门</td><td>王五</td><td>¥69.00</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <aside class="right-sidebar">
+            <h3>促销信息</h3>
+            <div class="ad">
+                <p>🎉 全场满100减20！</p>
+                <p>📚 买二送一活动进行中！</p>
+                <p>⏰ 限时优惠：今日截止！</p>
+            </div>
+        </aside>
+    </main>
+
+    <div class="clearfix"></div>
+
+    <script>
+        const loginModalWrap = document.getElementById('loginModalWrap');
+        const showLoginBtn = document.getElementById('showLoginBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalTabs = document.querySelectorAll('.modal-tab');
+        const loginPanel = document.getElementById('loginPanel');
+        const registerPanel = document.getElementById('registerPanel');
+        const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+        const regSubmitBtn = document.getElementById('regSubmitBtn');
+
+        showLoginBtn.addEventListener('click', () => {
+            loginModalWrap.style.display = 'flex';
+        });
+        closeModalBtn.addEventListener('click', () => {
+            loginModalWrap.style.display = 'none';
+            clearAllTips();
+            clearAllInputs();
+        });
+        loginModalWrap.addEventListener('click', (e) => {
+            if (e.target === loginModalWrap) {
+                loginModalWrap.style.display = 'none';
+                clearAllTips();
+                clearAllInputs();
+            }
+        });
+
+        modalTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                modalTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                loginPanel.classList.remove('active');
+                registerPanel.classList.remove('active');
+                document.getElementById(tab.dataset.panel).classList.add('active');
+                clearAllTips();
+            });
+        });
+
+        function getAllUsers() {
+            const users = localStorage.getItem('bookStoreUsers');
+            return users ? JSON.parse(users) : [];
+        }
+        function saveUser(user) {
+            const users = getAllUsers();
+            users.push(user);
+            localStorage.setItem('bookStoreUsers', JSON.stringify(users));
+        }
+        function checkUserExist(username) {
+            const users = getAllUsers();
+            return users.some(user => user.username === username);
+        }
+        function verifyUser(username, password) {
+            const users = getAllUsers();
+            return users.some(user => user.username === username && user.password === password);
+        }
+
+        function clearAllTips() {
+            document.querySelectorAll('.tip-text').forEach(tip => {
+                tip.style.display = 'none';
+                tip.textContent = '';
+            });
+        }
+        function clearAllInputs() {
+            document.querySelectorAll('.form-group input').forEach(input => input.value = '');
+        }
+        function showTip(tipId, text) {
+            const tip = document.getElementById(tipId);
+            tip.textContent = text;
+            tip.style.display = 'block';
+        }
+
+        regSubmitBtn.addEventListener('click', () => {
+            const regUsername = document.getElementById('regUsername').value.trim();
+            const regPwd = document.getElementById('regPwd').value.trim();
+            const regPwdConfirm = document.getElementById('regPwdConfirm').value.trim();
+            let isValid = true;
+            clearAllTips();
+
+            if (!regUsername) {
+                showTip('regUserTip', '用户名不能为空');
+                isValid = false;
+            } else if (checkUserExist(regUsername)) {
+                showTip('regExistTip', '该用户名已存在');
+                isValid = false;
+            }
+            if (regPwd.length < 6) {
+                showTip('regPwdTip', '密码长度不能少于6位');
+                isValid = false;
+            }
+            if (regPwd !== regPwdConfirm) {
+                showTip('regPwdConfirmTip', '两次密码不一致');
+                isValid = false;
+            }
+
+            if (isValid) {
+                saveUser({ username: regUsername, password: regPwd });
+                alert('注册成功！请登录');
+                modalTabs[0].click();
+            }
+        });
+
+        loginSubmitBtn.addEventListener('click', () => {
+            const loginUsername = document.getElementById('loginUsername').value.trim();
+            const loginPwd = document.getElementById('loginPwd').value.trim();
+            let isValid = true;
+            clearAllTips();
+
+            if (!loginUsername) {
+                showTip('loginUserTip', '用户名不能为空');
+                isValid = false;
+            }
+            if (!loginPwd) {
+                showTip('loginPwdTip', '密码不能为空');
+                isValid = false;
+            }
+
+            if (isValid) {
+                if (verifyUser(loginUsername, loginPwd)) {
+                    alert('登录成功！');
+                    loginModalWrap.style.display = 'none';
+                    clearAllInputs();
+                } else {
+                    showTip('loginErrorTip', '用户名或密码错误');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
